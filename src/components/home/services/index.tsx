@@ -1,6 +1,7 @@
 import { HomeProps } from '@/utils/home.type'
 import styles from './styles.module.scss'
 import Image from 'next/image'
+import { Phone } from 'lucide-react'
 
 export function Services({ object }: HomeProps) {
     return (
