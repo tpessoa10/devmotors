@@ -15,6 +15,10 @@
     justify-self: center;
     flex-direction: column;
     gap: 14px;
+
+    p{
+        font-size: 22px;
+    }
 }
 
 .bannerAbout{
@@ -69,7 +73,7 @@
 
 //Service area
 
-.serviceTitle{
+.servicesTitle{
     text-transform: uppercase;
     color: #121212;
     margin: 40px 0 24px 0;
@@ -114,5 +118,24 @@
 
     + p{
         font-weight: bold;
+    }
+}
+
+@media (min-width:640px){
+    .services{
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .innerService{
+        width: 280px;
+        height: 280px;
+    }
+
+    .servicesTitle{
+        font-size: 30px;
+        margin-top: 54px;
     }
 }

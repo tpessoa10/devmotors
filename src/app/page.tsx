@@ -1,5 +1,6 @@
 import { Container } from "@/components/container";
 import { Hero } from "@/components/hero";
+import { Footer } from "@/components/home/footer";
 import { Services } from "@/components/home/services";
 import { Submenu } from "@/components/home/submenu";
 import { getDataHome } from "@/utils/actions/get-data";
@@ -16,6 +17,7 @@ export default async function Home() {
        bannerUrl={object.metadata.banner.url} buttonUrl={object.metadata.cta_button.url} buttonTitle={object.metadata.cta_button.title} heading={object.metadata.heading}/>   
       <Container>
         <Services object={object}/>
+        <Footer object={object}/>
       </Container>
     </div>
   );
