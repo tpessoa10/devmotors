@@ -4,8 +4,14 @@ import Link from "next/link"
 import styles from "./styles.module.scss"
 import { X, Menu } from "lucide-react"
 import { useEffect, useState } from "react"
+import { MenuProps } from "@/utils/menu.type"
 
-export function Submenu() {
+interface SubMenuProps{
+    menu: MenuProps
+}
+
+
+export function Submenu({menu}: SubMenuProps) {
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
