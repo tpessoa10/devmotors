@@ -6,12 +6,12 @@ import { X, Menu } from "lucide-react"
 import { useEffect, useState } from "react"
 import { MenuProps } from "@/utils/menu.type"
 
-interface SubMenuProps{
+interface SubMenuProps {
     menu: MenuProps
 }
 
 
-export function Submenu({menu}: SubMenuProps) {
+export function Submenu({ menu }: SubMenuProps) {
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
@@ -40,20 +40,17 @@ export function Submenu({menu}: SubMenuProps) {
 
                 {isOpen && (
                     <button className={styles.closeButton} onClick={toggleMenu}>
-                        <X size={54} color="#121212"/>
+                        <X size={54} color="#121212" />
                     </button>
                 )}
 
-                <li>
-                    <Link href={"/"}>
-                        Página 1
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/">
-                        Página 1
-                    </Link>
-                </li>
+                {menu.objects.map(item => (
+                    <li key={item.slug}>
+                        <Link href={`/post/${item.slug}`}>
+                            {item.title}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </section>
     )
