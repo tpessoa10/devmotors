@@ -5,10 +5,10 @@ import { Hero } from '@/components/hero'
 import { Phone } from 'lucide-react'
 import { Container } from '@/components/container'
 
-export default async function Page({ params: { slug } }: {
-    params: { slug: string }
+export default async function Page({ params: { id } }: {
+    params: { id: string }
 }) {
-    const { object }: PostProps = await getItemBySlug(slug)
+    const { object }: PostProps = await getItemBySlug(id)
     return (
         <div>
             <Hero icon={<Phone size={24} color="#fff" />}

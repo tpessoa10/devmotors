@@ -19,7 +19,7 @@ interface objectPost{
             banner:{
                 url:string
             }
-            button_active:boolean;
+            button_active:boolean; 
             button_title:string;
             button_url:string;
         }

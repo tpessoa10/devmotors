@@ -5,13 +5,13 @@ import { Services } from "@/components/home/services";
 import { Submenu } from "@/components/home/submenu";
 import { getDataHome, getSubMenu } from "@/utils/actions/get-data";
 import { HomeProps } from "@/utils/home.type";
-import { MenuProps } from "@/utils/menu.type";
+import { CosmicResponse } from "@/utils/menu.type";
 import { Phone } from 'lucide-react';
 
 
 export default async function Home() {
   const { object }:HomeProps = await getDataHome()
-  const menu: MenuProps = await getSubMenu()
+  const menu: CosmicResponse = await getSubMenu()
   console.log('menu ', menu)
   return (
     <div>

@@ -4,10 +4,10 @@ import Link from "next/link"
 import styles from "./styles.module.scss"
 import { X, Menu } from "lucide-react"
 import { useEffect, useState } from "react"
-import { MenuProps } from "@/utils/menu.type"
+import { CosmicResponse } from "@/utils/menu.type"
 
 interface SubMenuProps {
-    menu: MenuProps
+    menu: CosmicResponse
 }
 
 
@@ -30,6 +30,8 @@ export function Submenu({ menu }: SubMenuProps) {
         setIsOpen(!isOpen)
     }
 
+    console.log('menu ', menu)
+
     return (
         <section className={styles.submenu}>
             <div className={styles.submenuIcon} onClick={toggleMenu}>
@@ -46,7 +48,7 @@ export function Submenu({ menu }: SubMenuProps) {
 
                 {menu.objects.map(item => (
                     <li key={item.slug}>
-                        <Link href={`/post/${item.slug}`}>
+                        <Link href={`/post/${item.id}`}>
                             {item.title}
                         </Link>
                     </li>
