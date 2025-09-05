@@ -1,5 +1,5 @@
 export interface PostProps{
-    object:objectPost[]
+    objects:objectPost[]
 }
 
 interface objectPost{
