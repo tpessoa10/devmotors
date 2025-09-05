@@ -33,7 +33,7 @@ export default async function Page({ params: { id } }: { params: { id: string } 
                         <p>{object.metadata.description.text}</p>
                     </article>
                     <div className={style.bannerAbout}>
-                        <Image fill src={object.metadata.banner.url} quality={100} alt={object.title} className={style.imageAbout}/>
+                        <Image priority sizes='(max-width:700px) 100vw, (max-width:1024px) 75vw, 50vw' fill src={object.metadata.banner.url} quality={100} alt={object.title} className={style.imageAbout}/>
                     </div>
                 </section>
             </Container>

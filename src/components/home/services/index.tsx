@@ -13,7 +13,7 @@ export function Services({ object }: HomeProps) {
                 </article>
 
                 <div className={styles.bannerAbout}>
-                    <Image src={object.metadata.about.banner.url} quality={100} fill alt='Imagem ilustrativa sobre a empresa' className={styles.imageAbout} />
+                    <Image sizes='(max-width:700px) 100vw, (max-width:1024px) 75vw, 50vw' src={object.metadata.about.banner.url} quality={100} fill alt='Imagem ilustrativa sobre a empresa' className={styles.imageAbout} />
                 </div>
             </section>
             <h2 className={styles.servicesTitle}>Conheça nossos serviços</h2>
@@ -21,7 +21,7 @@ export function Services({ object }: HomeProps) {
                 {object.metadata.services.map(service => (
                     <article className={styles.service} key={service.description}>
                         <div className={styles.innerService}>
-                            <Image src={service.image.url} quality={100} fill alt='Imagem do serviço' className={styles.imageService} />
+                            <Image sizes='(max-width:700px) 100vw, (max-width:1024px) 75vw, 50vw' src={service.image.url} quality={100} fill alt='Imagem do serviço' className={styles.imageService} />
                         </div>
                         <p>{service.description}</p>
                     </article>
