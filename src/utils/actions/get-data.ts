@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation"
+
 export async function getDataHome() {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}233e05a0-838d-11f0-a68f-abd1b8e9138c/objects/68af7d93a116be3a9e5f2d02?
@@ -39,6 +41,7 @@ export async function getItemById(id: string) {
     return data.object ?? null; // ⚡ atenção: aqui é "object" (singular)
   } catch (err) {
     console.error(err);
+    redirect("/")
     return null;
   }
 }
