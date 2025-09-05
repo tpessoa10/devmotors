@@ -16,6 +16,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "DevMortors",
   description: "Oficina de carros",
+  keywords:["oficina", "oficina de carros", "carros", "manutenção de carros"],
+  openGraph:{
+    images:[`${process.env.NEXT_PUBLIC_URL}/logo.jpg`]
+  },
+  robots:{
+    index:true,
+    follow:true,
+    nocache:true,
+    googleBot:{
+      index:true,
+      follow:true,
+      noimageindex:true
+    }
+  }
 };
 
 export default function RootLayout({
