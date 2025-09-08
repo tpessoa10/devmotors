@@ -6,12 +6,44 @@ import { Phone } from 'lucide-react'
 import { Container } from '@/components/container'
 import { CosmicObject } from '@/utils/menu.type'
 import Image from 'next/image'
+import { Metadata } from 'next'
+
+export async function generateMetadata({ params: { id } }: { params: { id: string } }): Promise<Metadata> {
+    try {
+        const object: CosmicObject = await getItemById(id)
+            .catch(() => {
+                return {
+                    title: "DevMotors - Oficina de carros"
+                }
+            })
+        return {
+            title: `DevMotors - ${object.title}`,
+            description: `${object.metadata.description.text}`,
+            keywords:['devmotors', 'troca de óleo'],
+            openGraph: {
+                images: [`${object.metadata.banner.url}`]
+            },
+            robots: {
+                index: true,
+                follow: true,
+                nocache: true,
+                googleBot: {
+                    index: true,
+                    follow: true,
+                    noimageindex: true
+                }
+            }
+        }
+    } catch (err) {
+        return {
+            title: "DevMotors - Oficina de carros"
+        }
+    }
+}
 
 export default async function Page({ params: { id } }: { params: { id: string } }) {
-    console.log('dadad', id)
 
-    const object:CosmicObject = await getItemById(id);
-    console.log('ob', object)
+    const object: CosmicObject = await getItemById(id);
 
     if (!object) {
         return <p style={{ paddingTop: '100px' }}>Não existe</p>;
@@ -33,7 +65,7 @@ export default async function Page({ params: { id } }: { params: { id: string } 
                         <p>{object.metadata.description.text}</p>
                     </article>
                     <div className={style.bannerAbout}>
-                        <Image priority sizes='(max-width:700px) 100vw, (max-width:1024px) 75vw, 50vw' fill src={object.metadata.banner.url} quality={100} alt={object.title} className={style.imageAbout}/>
+                        <Image priority sizes='(max-width:700px) 100vw, (max-width:1024px) 75vw, 50vw' fill src={object.metadata.banner.url} quality={100} alt={object.title} className={style.imageAbout} />
                     </div>
                 </section>
             </Container>

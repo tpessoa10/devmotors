@@ -12,42 +12,43 @@ interface SubMenuProps {
 
 
 export function Submenu({ menu }: SubMenuProps) {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth > 728) {
-                setIsOpen(false)
+            if (window.innerWidth > 768) {
+                setIsOpen(false);
             }
         }
 
         window.addEventListener("resize", handleResize)
 
-        return window.removeEventListener("resize", handleResize)
+        return () => window.removeEventListener("resize", handleResize)
+
     }, [])
 
     function toggleMenu() {
-        setIsOpen(!isOpen)
+        setIsOpen(!isOpen);
     }
-
-    console.log('menu ', menu)
 
     return (
         <section className={styles.submenu}>
             <div className={styles.submenuIcon} onClick={toggleMenu}>
                 <Menu size={34} color="#121212" />
-                Menu
+                Serviços
             </div>
-            <ul className={`${styles.ul} ${isOpen ? styles.open : ''}`}>
+
+            <ul className={`${styles.ul} ${isOpen ? styles.open : ""}`}>
 
                 {isOpen && (
-                    <button className={styles.closeButton} onClick={toggleMenu}>
+                    <button onClick={toggleMenu} className={styles.closeButton}>
                         <X size={54} color="#121212" />
                     </button>
                 )}
 
-                {menu.objects.map(item => (
-                    <li key={item.slug}>
+
+                {menu.objects.map((item) => (
+                    <li key={item.title}>
                         <Link href={`/post/${item.id}`}>
                             {item.title}
                         </Link>
